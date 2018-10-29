@@ -1,5 +1,15 @@
-interface ... {
-  // ...
+interface Status {
+  error?: any,
+  loading: boolean
 }
 
-export default function use...(): ...;
+type AsyncFunction = Array<{
+  (handler: any): Promise<any>, 
+  Status
+}>
+
+type Options = {
+  delayMs: number
+}
+
+export default function useAsyncFunction(fn: Function, options: Options): AsyncFunction;
