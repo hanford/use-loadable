@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function AsyncHook(fn, { delayMs = 1000 } = {}) {
+export default function AsyncHook(fn, { delayMs = 0 } = {}) {
   const [loading, setLoading] = useState(null);
   const [error, setError] = useState(null);
 
@@ -8,7 +8,7 @@ export default function AsyncHook(fn, { delayMs = 1000 } = {}) {
     setLoading(true);
     setError(null);
 
-    setTimeout(async () => {
+    async function run() {
       try {
         return await fn(...args);
       } catch (err) {
@@ -16,7 +16,9 @@ export default function AsyncHook(fn, { delayMs = 1000 } = {}) {
       } finally {
         setLoading(false);
       }
-    }, delayMs);
+    }
+
+    delayMs > 0 ? setTimeout(run, delayMs) : run()
   }
 
   return [
