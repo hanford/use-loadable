@@ -16,11 +16,21 @@ yarn add @rehooks/async-function
 ## Usage
 
 ```js
-import useAsyncFunction from '@rehooks/async-function';
+const sleep = time => () => new Promise(done => setTimeout(done, time));
 
-function MyComponent() {
-  let value = useAsyncFunction();
-  // value == AsyncFunction
-  return <div/>;
+function App() {
+  const [onClick, { loading, error }] = useAsyncFunction(sleep(500));
+
+  return (
+    <React.Fragment>
+      <pre>
+        error: {JSON.stringify(error)}
+        <br />
+        loading: {JSON.stringify(loading)}
+      </pre>
+      <button onClick={onClick}>{loading ? "Loading..." : "Load"}</button>
+    </React.Fragment>
+  );
 }
+
 ```
