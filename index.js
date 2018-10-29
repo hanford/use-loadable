@@ -1,6 +1,6 @@
-import { useState } from 'react'
+import { useState } from "react";
 
-export default async function useAsyncFunction(fn) {
+export default function AsyncHook(fn, { delayMs = 0 }) {
   const [loading, setLoading] = useState(null);
   const [error, setError] = useState(null);
 
@@ -8,13 +8,15 @@ export default async function useAsyncFunction(fn) {
     setLoading(true);
     setError(null);
 
-    try {
-      return await fn(...args);
-    } catch (err) {
-      setError(err);
-    } finally {
-      setLoading(false);
-    }
+    setTimeout(async () => {
+      try {
+        return await fn(...args);
+      } catch (err) {
+        setError(err);
+      } finally {
+        setLoading(false);
+      }
+    }, delayMs);
   }
 
   return [
@@ -25,4 +27,3 @@ export default async function useAsyncFunction(fn) {
     }
   ];
 }
-

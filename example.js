@@ -7,7 +7,7 @@ const sleep = time => () =>
   new Promise(done => setTimeout(() => done(Math.random()), time));
 
 function App() {
-  const [onClick, { loading, error }] = useAsyncHook(sleep(500));
+  const [onClick, { loading, error }] = useAsyncHook(sleep(500), { delayMs: 300 });
 
   return (
     <React.Fragment>

@@ -10,7 +10,7 @@ function render(val) {
 
 test(t => {
   function Component() {
-    let [fn, { loading, error }] = useAsyncFunction(() => {});
+    let [fn, { loading, error }] = useAsyncFunction(async () => {});
     return h('div');
   }
 
