@@ -2,7 +2,7 @@
 let test = require('ava');
 let { createElement: h } = require('react');
 let ReactTestRenderer = require('react-test-renderer');
-let useAsyncFunction = require('./');
+let useLoadable = require('./');
 
 function render(val) {
   return ReactTestRenderer.create(val);
@@ -10,7 +10,7 @@ function render(val) {
 
 test(t => {
   function Component() {
-    let [fn, { loading, error }] = useAsyncFunction(async () => {});
+    let [fn, { loading, error }] = useLoadable(async () => {});
     return h('div');
   }
 

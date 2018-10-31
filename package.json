@@ -1,9 +1,9 @@
 {
-  "name": "@rehooks/async-function",
+  "name": "@rehooks/loadable",
   "version": "1.0.0",
-  "description": "React hook for async-function",
+  "description": "React hook for loadable",
   "main": "index.js",
-  "repository": "https://github.com/rehooks/async-function",
+  "repository": "https://github.com/rehooks/loadable",
   "author": "Jack Hanford",
   "license": "MIT",
   "publishConfig": {

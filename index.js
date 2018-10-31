@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function AsyncHook(fn, { delayMs = 0 } = {}) {
+export default function Loadable(fn, { delayMs = 0 } = {}) {
   const [loading, setLoading] = useState(null);
   const [error, setError] = useState(null);
 
@@ -22,10 +22,10 @@ export default function AsyncHook(fn, { delayMs = 0 } = {}) {
   }
 
   return [
-    handler,
     {
       loading,
       error
-    }
+    },
+    handler
   ];
 }

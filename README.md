@@ -1,6 +1,6 @@
-# `@rehooks/async-function`
+# `@rehooks/loadable`
 
-> React hook for AsyncFunction
+> React hook for Loadable
 
 > **Note:** This is using the new [React Hooks API Proposal](https://reactjs.org/docs/hooks-intro.html)
 > which is subject to change until React 16.7 final.
@@ -10,7 +10,7 @@
 ## Install
 
 ```sh
-yarn add @rehooks/async-function
+yarn add @rehooks/loadable
 ```
 
 ## Usage
@@ -19,7 +19,7 @@ yarn add @rehooks/async-function
 const sleep = time => () => new Promise(done => setTimeout(done, time));
 
 function App() {
-  const [onClick, { loading, error }] = useAsyncFunction(sleep(500));
+  const [{ loading, error }, onClick] = useLoadable(sleep(500));
 
   return (
     <React.Fragment>
@@ -35,14 +35,14 @@ function App() {
 ```
 
 ### Using delayMs
-Sometimes async functions will be cached and the function will return too quickly resulting in a flicker. To mitigate that, you can pass an optional `{ delayMs }` argument to `useAsyncFunction`
+Sometimes async functions will be cached and the function will return too quickly resulting in a flicker. To mitigate that, you can pass an optional `{ delayMs }` argument to `useLoadable`
 
 ```js
 const sleep = () => new Promise(done => done());
 
 function App() {
   // this will take atleast 300ms to resolve
-  const [onClick, { loading, error }] = useAsyncFunction(sleep, { delayMs: 300 });
+  const [{ loading, error }, onClick] = useLoadable(sleep, { delayMs: 300 });
 
   return (
     <button onClick={onClick}>{loading ? "Loading..." : "Load"}</button>

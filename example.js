@@ -1,13 +1,13 @@
 import * as React from "react";
 import { render } from "react-dom";
 
-import useAsyncHook from "./";
+import useLoadable from "./";
 
 const sleep = time => () =>
   new Promise(done => setTimeout(() => done(Math.random()), time));
 
 function App() {
-  const [onClick, { loading, error }] = useAsyncHook(sleep(500), { delayMs: 300 });
+  const [{ loading, error }, onClick] = useLoadable(sleep(500), { delayMs: 300 });
 
   return (
     <React.Fragment>

@@ -4,8 +4,8 @@ interface Status {
 }
 
 type AsyncFunction = Array<{
-  (handler: any): Promise<any>, 
-  Status
+  Status,
+  (handler: any): Promise<any>
 }>
 
 type Options = {
