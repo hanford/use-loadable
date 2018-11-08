@@ -1,6 +1,6 @@
 {
   "name": "use-loadable",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "React hook for loadable",
   "main": "index.js",
   "repository": "https://github.com/hanford/use-loadable",
