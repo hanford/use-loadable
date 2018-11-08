@@ -1,4 +1,4 @@
-# `@rehooks/loadable`
+# `use-loadable`
 
 > React hook for Loadable
 
@@ -10,7 +10,7 @@
 ## Install
 
 ```sh
-yarn add @rehooks/loadable
+yarn add use-loadable
 ```
 
 ## Usage

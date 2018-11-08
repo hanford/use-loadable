@@ -1,9 +1,9 @@
 {
-  "name": "@rehooks/loadable",
+  "name": "use-loadable",
   "version": "1.0.0",
   "description": "React hook for loadable",
   "main": "index.js",
-  "repository": "https://github.com/rehooks/loadable",
+  "repository": "https://github.com/hanford/use-loadable",
   "author": "Jack Hanford",
   "license": "MIT",
   "publishConfig": {
