@@ -1,5 +1,6 @@
 interface Status {
   error?: any,
+  res?: any,
   loading: boolean
 }
 

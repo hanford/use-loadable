@@ -1,6 +1,7 @@
 interface Status {
   error?: any,
-  loading: boolean
+  loading: boolean,
+  res?: any
 }
 
 type AsyncFunction = Array<{

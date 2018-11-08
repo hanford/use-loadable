@@ -19,11 +19,13 @@ yarn add use-loadable
 const sleep = time => () => new Promise(done => setTimeout(done, time));
 
 function App() {
-  const [{ loading, error }, onClick] = useLoadable(sleep(500));
+  const [{ loading, error, res }, onClick] = useLoadable(sleep(500));
 
   return (
     <React.Fragment>
       <pre>
+        res: {JSON.stringify(res)}
+        <br />
         error: {JSON.stringify(error)}
         <br />
         loading: {JSON.stringify(loading)}
@@ -42,7 +44,7 @@ const sleep = () => new Promise(done => done());
 
 function App() {
   // this will take atleast 300ms to resolve
-  const [{ loading, error }, onClick] = useLoadable(sleep, { delayMs: 300 });
+  const [{ loading, error, res }, onClick] = useLoadable(sleep, { delayMs: 300 });
 
   return (
     <button onClick={onClick}>{loading ? "Loading..." : "Load"}</button>
@@ -50,4 +52,4 @@ function App() {
 }
 ```
 
-[![Edit React Hooks Demo](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/mo8x74m66j)
+[![Edit React Hooks Demo](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/ykv17px719)
