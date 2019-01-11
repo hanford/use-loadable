@@ -16,6 +16,8 @@ yarn add use-loadable
 ## Usage
 
 ```js
+import useLoadable from 'use-loadable' 
+
 const sleep = time => () => new Promise(done => setTimeout(done, time));
 
 function App() {
